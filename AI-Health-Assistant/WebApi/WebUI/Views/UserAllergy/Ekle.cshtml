@@ -1,0 +1,45 @@
+﻿@model List<WebUI.Models.UserAllergyModel>
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="wrapper">
+    <div class="main-header">
+        <div class="main-panel">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-sub">
+                                        ALERJİ EKLE
+                                    </div>
+                                    <form method="post" action="@Url.Action("Ekle", "UserAllergy")">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            var userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "UserId")?.Value ?? "0");
+                                            <input type="hidden" name="userId" value="@userId" />
+                                        }
+                                        <div class="form-group">
+                                            <label for="allergyId">Alerji Seçiniz</label>
+                                            <select class="form-control" id="allergyId" name="allergyId" required>
+                                                <option value="">Seçiniz...</option>
+                                                @foreach (var allergy in ViewBag.Allergies)
+                                                {
+                                                    <option value="@allergy.AllergyID">@allergy.AllergyName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-border btn-round">Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

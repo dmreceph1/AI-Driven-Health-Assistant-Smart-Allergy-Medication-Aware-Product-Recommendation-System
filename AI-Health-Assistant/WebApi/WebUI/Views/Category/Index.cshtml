@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "Fiziksel Bilgilerim";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    .stats-container {
+        margin-top: 2rem;
+    }
+
+    .stat-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        color: white;
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+        margin-bottom: 2rem;
+        border: none;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+    }
+
+    .stat-card.height-card {
+        background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+        box-shadow: 0 15px 35px rgba(86, 171, 47, 0.3);
+    }
+
+    .stat-card.height-card:hover {
+        box-shadow: 0 25px 50px rgba(86, 171, 47, 0.4);
+    }
+
+    .stat-card.weight-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+    }
+
+    .stat-card.weight-card:hover {
+        box-shadow: 0 25px 50px rgba(240, 147, 251, 0.4);
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:hover::before {
+        top: -60%;
+        right: -60%;
+        width: 120%;
+        height: 120%;
+    }
+
+    .stat-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 1.2rem;
+        font-weight: 500;
+        opacity: 0.9;
+    }
+
+    .welcome-card {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        color: white;
+        box-shadow: 0 15px 35px rgba(79, 172, 254, 0.3);
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .welcome-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    .update-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 50px;
+        padding: 1rem 3rem;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        margin-top: 2rem;
+    }
+
+    .update-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .update-btn i {
+        margin-right: 10px;
+    }
+
+    .alert-custom {
+        background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+        border: none;
+        border-radius: 15px;
+        color: white;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(86, 171, 47, 0.3);
+    }
+
+    .bmi-card {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px rgba(252, 182, 159, 0.3);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .bmi-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #d63031;
+        margin-bottom: 0.5rem;
+    }
+
+    .bmi-status {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2d3436;
+    }
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: #6c757d;
+        font-weight: 400;
+    }
+</style>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-custom">
+        <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="page-header">
+    <h1 class="page-title">Fiziksel Bilgilerim</h1>
+    <p class="page-subtitle">Sağlık verilerinizi takip edin ve hedefe ulaşın</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center stats-container">
+        <div class="col-lg-4 col-md-6">
+            <div class="stat-card height-card">
+                <div class="text-center">
+                    <div class="stat-icon">
+                        <i class="fas fa-ruler-vertical"></i>
+                    </div>
+                    <div class="stat-value">
+                        @(ViewBag.UserHeight != null ? $"{ViewBag.UserHeight}" : "?")
+                        <span style="font-size: 1.5rem; opacity: 0.8;">cm</span>
+                    </div>
+                    <div class="stat-label">Boy Uzunluğu</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="stat-card weight-card">
+                <div class="text-center">
+                    <div class="stat-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <div class="stat-value">
+                        @(ViewBag.UserWeight != null ? $"{ViewBag.UserWeight}" : "?")
+                        <span style="font-size: 1.5rem; opacity: 0.8;">kg</span>
+                    </div>
+                    <div class="stat-label">Vücut Ağırlığı</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="welcome-card">
+                <h3 class="welcome-title">
+                    <i class="fas fa-chart-line" style="margin-right: 15px;"></i>
+                    Sağlık Takibiniz
+                </h3>
+                <p class="welcome-subtitle">
+                    Fiziksel bilgilerinizi güncel tutarak sağlık hedefinize ulaşın
+                </p>
+                <a href="@Url.Action("UpdatePhysicalInfo", "Auth")" class="update-btn">
+                    <i class="fas fa-edit"></i>
+                    Bilgileri Güncelle
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.stat-card, .welcome-card, .bmi-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+    });
+</script>
+

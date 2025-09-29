@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\website-menu-19\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\css\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\fonts\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\images\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\js\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\scss\.DS_Store" />
+    <None Include="wwwroot\website-menu-19\scss\bootstrap\.DS_Store" />
+    <None Include="wwwroot\wwwroot\Ready-Bootstrap-Dashboard-master\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+</Project>
