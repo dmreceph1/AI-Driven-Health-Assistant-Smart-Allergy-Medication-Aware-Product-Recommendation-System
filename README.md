@@ -75,6 +75,8 @@ Bu proje sayesinde kullanıcılar:
 - Cloud entegrasyonu (Azure / AWS)  
 
 ---
+<img width="1582" height="723" alt="web" src="https://github.com/user-attachments/assets/0bc4c21f-2ec0-42cf-a779-2ed8ad15a730" />
+
 
 👨‍💻 **Geliştirici:** Recep Demir  
 🎓 **Kayseri Üniversitesi – Bilgisayar Mühendisliği Bitirme Projesi (2025)**  
