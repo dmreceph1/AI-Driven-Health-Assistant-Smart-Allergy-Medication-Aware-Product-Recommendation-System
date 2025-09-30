@@ -76,6 +76,10 @@ Bu proje sayesinde kullanıcılar:
 
 ---
 <img width="1582" height="723" alt="web" src="https://github.com/user-attachments/assets/0bc4c21f-2ec0-42cf-a779-2ed8ad15a730" />
+<img width="303" height="654" alt="mob1" src="https://github.com/user-attachments/assets/92c51bb3-49ed-42a3-b6e8-81ea76c04b28" />
+<img width="296" height="657" alt="mob2" src="https://github.com/user-attachments/assets/14ace470-c084-40a7-bad8-06f39d83123b" />
+
+
 
 
 👨‍💻 **Geliştirici:** Recep Demir  
