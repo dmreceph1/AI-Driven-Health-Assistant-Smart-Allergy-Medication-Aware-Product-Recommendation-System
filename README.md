@@ -80,8 +80,10 @@ Bu proje sayesinde kullanıcılar:
   <img src="https://github.com/user-attachments/assets/92c51bb3-49ed-42a3-b6e8-81ea76c04b28" alt="mob1" width="150" style="margin-right:20px;">
   <img src="https://github.com/user-attachments/assets/14ace470-c084-40a7-bad8-06f39d83123b" alt="mob2" width="150">
 </p>
----
+WEB:
 https://youtu.be/GwgBSEXAsdQ
+MOBILE:
+https://youtube.com/shorts/JIzjmLFp3VE?feature=share
 
 👨‍💻 **Geliştirici:** Recep Demir  
 🎓 **Kayseri Üniversitesi – Bilgisayar Mühendisliği Bitirme Projesi (2025)**  
